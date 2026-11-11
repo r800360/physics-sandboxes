@@ -1,0 +1,105 @@
+:root {
+  --paper: #f3efe6;
+  --ink: #1b1814;
+  --muted: #665e54;
+  --line: #ddd4c4;
+  --card: #fffdf8;
+  --teal: #0f6e68;
+  --amber: #b85c14;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.45 "Segoe UI", sans-serif;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+  padding: 22px 28px 6px;
+}
+h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 640;
+  letter-spacing: -0.03em;
+}
+header p { margin: 4px 0 0; color: var(--muted); max-width: 42rem; }
+.eq {
+  font-family: Cambria, Georgia, serif;
+  font-size: 22px;
+  white-space: nowrap;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 16px;
+  padding: 12px 28px 32px;
+}
+.view {
+  width: 100%;
+  height: 520px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: block;
+  touch-action: none;
+}
+.chart {
+  width: 100%;
+  height: 110px;
+  margin-top: 10px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: block;
+}
+.side { display: flex; flex-direction: column; gap: 10px; }
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+.note { color: var(--muted); font-size: 13px; }
+label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+label.check { justify-content: flex-start; align-items: center; }
+input[type="range"] { width: 100%; accent-color: var(--teal); }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+button {
+  background: var(--ink);
+  color: var(--paper);
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font: inherit;
+  cursor: pointer;
+}
+button.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+button.on { background: var(--teal); }
+.nums { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; }
+.num b { display: block; font-size: 18px; font-variant-numeric: tabular-nums; }
+.num span { color: var(--muted); font-size: 12px; }
+video {
+  width: 100%;
+  border-radius: 14px;
+  background: #111;
+}
+.scenes { display: flex; flex-wrap: wrap; gap: 6px; }
+.scenes button { padding: 6px 10px; }
+@media (max-width: 880px) {
+  header { flex-direction: column; align-items: flex-start; }
+  .layout { grid-template-columns: 1fr; padding: 12px; }
+  .view { height: 420px; }
+  .eq { font-size: 18px; white-space: normal; }
+}

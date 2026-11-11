@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Physics sandboxes</title>
+  <link rel="stylesheet" href="pendulum/style.css" />
+  <style>
+    main { padding: 8px 28px 48px; display: grid; gap: 14px; }
+    a.card {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px;
+      color: inherit;
+      text-decoration: none;
+    }
+    a.card:hover { border-color: var(--teal); }
+    a.card strong { display: block; font-size: 20px; letter-spacing: -0.02em; }
+    a.card span { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Physics sandboxes</h1>
+      <p>Three simulators. Each one runs in the browser. Sliders do not call a server.</p>
+    </div>
+  </header>
+  <main>
+    <a class="card" href="pendulum/">
+      <strong>Physical pendulum</strong>
+      <span>Uniform rod, pivot at one end. θ̈ = −(3g / 2L) sin θ</span>
+    </a>
+    <a class="card" href="bowl/">
+      <strong>Rigid body in a bowl</strong>
+      <span>Asymmetric dumbbell, penalty contact, RK4 against symplectic Euler.</span>
+    </a>
+    <a class="card" href="sheet/">
+      <strong>Corotated elastic sheet</strong>
+      <span>Implicit Euler, triangular mesh, floor, and moving handles.</span>
+    </a>
+  </main>
+</body>
+</html>

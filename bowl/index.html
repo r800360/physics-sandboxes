@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rigid body in a bowl</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Rigid body in a bowl</h1>
+      <p>Unequal dumbbell, center of mass at the origin of the body. The bowl is y = αx². Contact is a quadratic penalty on 57 sample points.</p>
+    </div>
+    <div class="eq">M q̈ = −∇U(q)</div>
+  </header>
+  <div class="layout">
+    <div>
+      <canvas id="view" class="view"></canvas>
+      <canvas id="chart" class="chart"></canvas>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <div class="row">
+          <button id="play">Pause</button>
+          <button id="reset" class="ghost">Reset</button>
+        </div>
+        <label>Bowl curvature α <b id="aVal">0.35</b></label>
+        <input id="alpha" type="range" min="0.15" max="0.8" step="0.01" value="0.35" />
+        <label>Penalty k <b id="kVal">10000</b></label>
+        <input id="k" type="range" min="3" max="4.7" step="0.01" value="4" />
+        <label>Time step <b id="dtVal">0.002 s</b></label>
+        <input id="dt" type="range" min="0.001" max="0.02" step="0.001" value="0.002" />
+        <label>Drop x <b id="xVal">0.80</b></label>
+        <input id="x0" type="range" min="-1.6" max="1.6" step="0.02" value="0.8" />
+      </div>
+      <div class="panel nums">
+        <div class="num"><b id="erk">—</b><span>RK4 max |ΔE|</span></div>
+        <div class="num"><b id="esy">—</b><span>symplectic max |ΔE|</span></div>
+        <div class="num"><b id="pen">—</b><span>RK4 penetration</span></div>
+        <div class="num"><b id="tt">—</b><span>time</span></div>
+      </div>
+      <p class="panel note">Teal is RK4. Amber is symplectic Euler. On this stiff penalty, RK4 tracks energy more tightly. That is the result, not a slogan about symplectic methods.</p>
+      <video src="clip.mp4" controls playsinline></video>
+    </aside>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

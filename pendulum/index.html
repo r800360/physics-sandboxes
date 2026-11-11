@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Physical pendulum</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Physical pendulum</h1>
+      <p>Uniform rod, pivot at one end. Theta starts from straight down. Drag the tip to aim the drop.</p>
+    </div>
+    <div class="eq">θ̈ = −(3g / 2L) sin θ</div>
+  </header>
+  <div class="layout">
+    <div>
+      <canvas id="view" class="view"></canvas>
+      <canvas id="chart" class="chart"></canvas>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <div class="row">
+          <button id="play">Pause</button>
+          <button id="reset" class="ghost">Reset</button>
+        </div>
+        <label>Length <b id="lVal">1.20 m</b></label>
+        <input id="length" type="range" min="0.6" max="2" step="0.01" value="1.2" />
+        <label>Time step <b id="dtVal">0.005 s</b></label>
+        <input id="dt" type="range" min="0.002" max="0.25" step="0.001" value="0.005" />
+        <label class="check"><input id="simple" type="checkbox" checked /> point mass, same length</label>
+      </div>
+      <div class="panel nums">
+        <div class="num"><b id="e0">—</b><span>energy (J)</span></div>
+        <div class="num"><b id="de">—</b><span>max |ΔE|</span></div>
+        <div class="num"><b id="th">—</b><span>theta (rad)</span></div>
+        <div class="num"><b id="om">—</b><span>omega</span></div>
+      </div>
+      <p class="panel note">The teal rod carries its mass along its length. The amber rod is a point mass at the tip, same length. Raise the time step to watch RK4 lose the energy.</p>
+      <video src="clip.mp4" controls playsinline></video>
+    </aside>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

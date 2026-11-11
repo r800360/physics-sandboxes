@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Corotated elastic sheet</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Corotated elastic sheet</h1>
+      <p>Implicit Euler on a triangular mesh. The force is corotated. The Hessian is the rest-pose stiffness. Color is von Mises strain from Green strain. This live mesh is coarse. The video is the recorded 378-vertex run.</p>
+    </div>
+    <div class="eq">min Φ(x)</div>
+  </header>
+  <div class="layout">
+    <div>
+      <canvas id="view" class="view"></canvas>
+    </div>
+    <aside class="side">
+      <div class="panel">
+        <div class="scenes" id="scenes"></div>
+        <div class="row" style="margin-top:10px">
+          <button id="play">Pause</button>
+          <button id="reset" class="ghost">Reset</button>
+        </div>
+      </div>
+      <div class="panel nums">
+        <div class="num"><b id="tt">—</b><span>time (s)</span></div>
+        <div class="num"><b id="st">—</b><span>max strain</span></div>
+        <div class="num"><b id="pen">—</b><span>penetration</span></div>
+        <div class="num"><b id="res">—</b><span>residual</span></div>
+      </div>
+      <p class="panel note">White squares are constrained vertices. A pure rotation of this model has zero elastic energy. The live solver takes a few quasi-Newton steps per frame, same incremental potential as the recorded run.</p>
+      <video src="clip.mp4" controls playsinline></video>
+    </aside>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
